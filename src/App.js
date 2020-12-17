@@ -3,31 +3,7 @@ import './App.css';
 import Rect from './Rect';
 
 class App extends Component{
-  // msgStyle1 = {
-  //   fontSize:"24pt",
-  //   color:"#900",
-  //   margin:"20px 0px",
-  //   padding:"5px",
-  //   borderBottom:"2px solid #900"
-  // }
-  // msgStyle2 = {
-  //   fontSize:"24pt",
-  //   color:"white",
-  //   backgroundColor:"#900",
-  //   margin:"20px 0px",
-  //   padding:"5px",
-  //   borderBottom:"2px solid #900"
-  // }
-  // btnstyle = {
-  //   fontSize:"20pt",
-  //   padding:"0px 10px"
-  // }
-
-  data = [
-    "This is list sample",
-    "これは...",
-    "モンスターではない神だ！"
-  ];
+  input = "";
 
   msgStyle = {
     fontSize:"20pt",
@@ -39,79 +15,60 @@ class App extends Component{
   constructor(props){
     super(props);
     this.state = {
-      list:this.data
-      // counter:0,
-      // msg:'count start',
-      // flg:true,
+      message:"type your name"
     };
-    // this.doAction = this.doAction.bind(this);
-    // let timer = setInterval(() => {
-    //   this.setState((state) => ({
-    //     msg: state.msg + "!"
-    //   }));
-    // },1000);
+    this.doChange = this.doChange.bind(this);
+    this.doSubmit = this.doSubmit.bind(this);
   }
 
-  // doAction(){
-  //   this.setState((state) => ({
-  //     counter: state.counter + 1 ,
-  //     msg: state.counter ,
-  //     flg: !state.flg
-  //   }));
-  // }
-
-  render(){
-    return <div>
-        <h1>React</h1>
-        <h2 style={this.msgStyle}>show list.</h2>
-        <List title="サンプル・リスト" data={this.data} />
-    </div>;
+  doChange(event){
+    this.input = event.target.value;
   }
-}
 
-class List extends Component{
-  number = 1;
-
-  title = {
-    fontSize:"20pt",
-    color:"blue",
-    fontWeight:"bold"
-  };
-
+  doSubmit(e){
+    this.setState({
+      message: "Hello, " + this.input + "!!"
+    });
+    e.preventDefault();
+  }
   render(){
-    let data = this.props.data;
-    return (
+    return(
       <div>
-          <p style={this.title}>{this.props.title}</p>
-          <ul>
-            {data.map((item) => 
-              <Item number={this.number++} value={item} key={this.number} />
-            )}
-          </ul>
-      </div>
+        <h1>React</h1>
+      <Message title="Children">
+        これはコンポーネント内のコンテンツです。
+        マルでテキストを分割し、リストに表示します。
+        改行は必要ありません。
+      </Message>
+      </div>      
     );
   }
 }
 
-class Item extends Component{
+class Message extends Component{
   li = {
-    listStyleType:"square",
     fontSize:"16pt",
     color:"#06",
     margin:"0px",
     padding:"0px",
   }
-  num = {
-    fontWeight:"bold",
-    color:"red"
-  }
-
   render(){
+    let content = this.props.children;
+    let arr = content.split('。');
+    let arr2 = [];
+    for(let i = 0; i < arr.length ; i ++){
+      if(arr[i].trim() != ''){
+        arr2.push(arr[i]);
+      }
+    }
+    let list = arr2.map((value,key) => 
+      <li style={this.li} key={key}>{value}.</li>
+    );
     return(
-      <li style={this.li}>
-        <span style={this.num}>[{this.props.number}]</span>
-        {this.props.value}
-      </li>
+      <div>
+        <h2>{this.props.title}</h2>
+        <ol>{list}</ol>
+      </div>
     );
   }
 }
