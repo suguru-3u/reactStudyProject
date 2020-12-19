@@ -8,11 +8,22 @@ let data = {title:'title',
 const sampleContext = React.createContext(data);
 
 class App extends Component{
- 
+  
+  newdata = {
+    title:'newtitle',
+    message:'newSample'
+  }
+
   render(){
     return(
       <div>
         <h1>Context</h1>
+        <Title />
+        <Message />
+        <sampleContext.Provider value={this.newdata}>
+          <Title />
+          <Message />
+        </sampleContext.Provider>
         <Title />
         <Message />
       </div>      
