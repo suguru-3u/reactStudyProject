@@ -5,37 +5,38 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { createStore,combineReducers } from 'redux';
 import { Provider } from 'react-redux';
+import Memostore from './memo/Store';
 
-// ステートの値
-let state_value = {
-    counter:0,
-    massage:"counter"
-}
+// // ステートの値
+// let state_value = {
+//     counter:0,
+//     massage:"counter"
+// }
 
-// レデュサー
-function counter(state = state_value,action){
-    switch(action.type){
-        case "INCREMENT":
-        return {
-            counter:state.counter + 1,
-            massage:"INCREMENT"
-        };
-        case "DECREMENT":
-        return {
-            counter:state.counter - 1,
-            massage:"DECREMENT"
-        };
-        default:
-        return state;
-    }
-}
+// // レデュサー
+// function counter(state = state_value,action){
+//     switch(action.type){
+//         case "INCREMENT":
+//         return {
+//             counter:state.counter + 1,
+//             massage:"INCREMENT"
+//         };
+//         case "DECREMENT":
+//         return {
+//             counter:state.counter - 1,
+//             massage:"DECREMENT"
+//         };
+//         default:
+//         return state;
+//     }
+// }
 
-// ストアの作成
-let store = createStore(counter);
+// // ストアの作成
+// let store = createStore(counter);
 
 ReactDOM.render(
-    <Provider store={store}>
-        <App msg="Hello App."/>
+    <Provider store={Memostore}>
+        <App />
     </Provider >,
     document.getElementById('root')
 );
