@@ -5,7 +5,7 @@ import { addMemo } from "./Store";
 class AddForm extends Component{
     constructor(props){
         super(props);
-        this.sate = {
+        this.state = {
             message:""
         }
         this.doChange = this.doChange.bind(this);
@@ -24,7 +24,7 @@ class AddForm extends Component{
         this.props.dispatch(action);
         this.setState({
             message:""
-        })
+        });
     }
 
     render(){
@@ -32,7 +32,7 @@ class AddForm extends Component{
             <div>
                 <p>{this.props.message}</p>
                 <form onSubmit={this.doAction}>
-                    <input type="text" onChange={this.doChange} value={this.state.message}/>
+                    <input type="text" onChange={this.doChange} value={this.state.message} required/>
                     <input type="submit" value="add" />
                 </form>
             </div>

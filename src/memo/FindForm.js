@@ -5,7 +5,7 @@ import { findMemo } from "./Store";
 class FindForm extends Component{
     constructor(props){
         super(props);
-        this.sate = {
+        this.state = {
             message:""
         }
         this.doChange = this.doChange.bind(this);

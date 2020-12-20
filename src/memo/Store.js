@@ -1,4 +1,4 @@
-import { connect } from 'react-redux';
+import { createStore } from 'redux';
 
 
 const initData = {
@@ -55,7 +55,7 @@ function findReduce(state,action){
     return{
         data:state.data,
         message:"find" + f + ":",
-        mode:find,
+        mode:"find",
         fdata:fdata
     };
 }
@@ -98,4 +98,4 @@ export function findMemo(text){
 }
 
 // ストアの作成
-export default createdStore(memoReducer);
+export default createStore(memoReducer);

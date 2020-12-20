@@ -5,7 +5,7 @@ import { deleteMemo } from "./Store";
 class DelForm extends Component{
     constructor(props){
         super(props);
-        this.sate = {
+        this.state = {
             number:0
         }
         this.doChange = this.doChange.bind(this);
