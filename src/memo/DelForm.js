@@ -36,6 +36,15 @@ class DelForm extends Component{
         })
     }
 
+    doAction(e){
+        e.prevetDefaultt();
+        let action = deleteMemo(this.state.number);
+        this.props.dispatch(action);
+        this.setState({
+            number:0
+        })
+    }
+
     render(){
         let n = 0;
         let items = this.props.data.map((value) => {
