@@ -5,6 +5,7 @@ class AddForm extends Component{
     constructor(props){
         super(props);
         this.state = {
+          lists:[],
           title:"",
           author:""
       }
@@ -13,7 +14,22 @@ class AddForm extends Component{
 
     handleChange = (event) => {
         this.setState({[event.target.name]: event.target.value})
-      }
+    }
+
+    handleSubmit = (event) => {
+        event.preventDefault();
+        this.setState({
+          lists: [
+              ...this.state.lists,
+              { 
+                title: this.state.title,
+                author: this.state.author
+              }],
+          title:"",
+          author:""
+      });
+    }
+
 
     render() {
         return (
