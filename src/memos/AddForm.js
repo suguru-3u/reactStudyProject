@@ -4,13 +4,16 @@ class AddForm extends Component{
 
     constructor(props){
         super(props);
-        this.title = props.a 
+        this.state = {
+            value : ""
+        }
     }
 
     render(){
         return(
             <div>
-                <input type="text" size="20" value="{this.title}" required/>
+                <input type="text" size="20" value={this.state.value} required/>
+                <button>add</button>
             </div>
         );
     }

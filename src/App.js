@@ -1,7 +1,7 @@
 // import React from 'react';
 import React,{Component} from 'react';
 import './App.css';
-import AddForm from './memo/AddForm';
+import AddForm from './memos/AddForm';
 
 class App extends Component{
   td = {
@@ -12,7 +12,7 @@ class App extends Component{
     return(
       <div >
         <h1>Memo</h1>
-        <AddForm a = "b"/>
+        <AddForm a="b"/>
         <p>THis is Sample</p>
       </div>      
     );
