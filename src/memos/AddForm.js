@@ -7,7 +7,8 @@ class AddForm extends Component{
         this.state = {
           lists:[],
           title:"",
-          author:""
+          author:"",
+          number: -1
       }
       this.handleChange = this.handleChange.bind(this);
     }
@@ -26,7 +27,7 @@ class AddForm extends Component{
                 author: this.state.author
               }],
           title:"",
-          author:""
+          author:"",
       });
     }
 
@@ -44,7 +45,8 @@ class AddForm extends Component{
               </button>
 
               {this.state.lists.map((l)=>(
-                <div key={l.title}>
+                <div key={l.number}>
+                    <p>number:{l.number}</p>
                     <p>title:{l.title}</p>
                     <p>author:{l.author}</p>  
                 </div>        
