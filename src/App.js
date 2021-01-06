@@ -1,14 +1,6 @@
+// import React from 'react';
 import React,{Component} from 'react';
-import { connect } from 'react-redux';
 import './App.css';
-import Rect from './Rect';
-import Memo from "./memo/Memo";
-import AddForm from "./memo/AddForm";
-import FindForm from "./memo/FindForm";
-import DelForm from "./memo/DelForm";
-
-
-
 
 class App extends Component{
   td = {
@@ -19,17 +11,7 @@ class App extends Component{
     return(
       <div >
         <h1>Memo</h1>
-        <AddForm />
-        <hr />
-        <table>
-          <tbody>
-            <tr>
-              <td style={this.td}><FindForm /></td>
-              <td style={this.td}><DelForm /></td>
-            </tr>
-          </tbody>
-        </table>
-        <Memo />
+        <p>THis is Sample</p>
       </div>      
     );
   }
