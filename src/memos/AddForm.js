@@ -42,6 +42,13 @@ class AddForm extends Component{
               <button onClick={this.handleSubmit}>
                 send
               </button>
+
+              {this.state.lists.map((l)=>(
+                <div key={l.title}>
+                    <p>title:{l.title}</p>
+                    <p>author:{l.author}</p>  
+                </div>        
+                ))}
           </div>
         );
     }
