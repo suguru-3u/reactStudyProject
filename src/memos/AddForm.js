@@ -34,13 +34,8 @@ class AddForm extends Component{
     deleteTodo(i){
       this.state.lists.splice(i,1);
       this.setState({
-        lists: [
-            ...this.state.lists,
-            { 
-              title: this.state.title,
-              author: this.state.author
-            }]
-        });
+        lists: this.state.lists,
+      });
     }
 
 
