@@ -5,34 +5,50 @@ class AddForm extends Component{
     constructor(props){
         super(props);
         this.state = {
-            value : ""
-            ,message: ""
+            title : ""
+            ,body: ""
+            ,a:""
+            ,b:""
         }
-        this.doChange = this.doChange.bind(this);
+        this.doChangeTitle = this.doChangeTitle.bind(this);
+        this.doChangeBody = this.doChangeBody.bind(this);
         this.doAction = this.doAction.bind(this);
     }
 
-    doChange(event){
+    doChangeTitle(event){
         this.setState({
-            value: event.target.value
+            a: event.target.value
         });
     }
 
-    doAction(event){
-        event.prevetDefaultt();
+    doChangeBody(event){
         this.setState({
-            message: this.state.value
-            ,value : ""
+            b: event.target.value
+        });
+    }
+
+    doAction(e){
+        e.prevetDefaultt();
+        this.setState({
+            title: this.state.a
+            ,body : this.state.b
+            ,a: ""
+            ,b: ""
         });
     }
 
     render(){
         return(
             <div>
-                <input type="text" size="20" value={this.state.value} required onChange={this.doChange}/>
-                <button onClick={this.doAction}>add</button>
+                <form>
+                    <input type="text" size="40"  onChange={this.doChangeTitle}/>
+                    <input type="text" size="50"   onChange={this.doChangeBody}/>
+                    <button onClick={this.doAction}>add</button>
+                </form>
+                
                 <ul>
-                    <li>{this.state.message}</li>
+                    <span>{this.state.title}</span>
+                    <li>{this.state.body}</li>
                 </ul>
             </div>
         );
