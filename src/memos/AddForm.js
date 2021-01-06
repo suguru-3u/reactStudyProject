@@ -44,11 +44,22 @@ class AddForm extends Component{
                 send
               </button>
 
-              {this.state.lists.map((l)=>(
-                <div key={l.number}>
-                    <p>number:{l.number}</p>
-                    <p>title:{l.title}</p>
-                    <p>author:{l.author}</p>  
+              {this.state.lists.map((l,i)=>(
+                <div key={l.title}>
+                    <table>
+                      <tr>
+                        <th>Title</th>
+                        <th>Author</th>
+                      </tr>
+                      <tr key={i}>
+                        <td>
+                          title:{l.title}
+                        </td>
+                        <td>
+                         author:{l.author}
+                        </td>
+                      </tr>
+                    </table>
                 </div>        
                 ))}
           </div>
