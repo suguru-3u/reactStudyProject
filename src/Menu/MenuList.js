@@ -7,25 +7,29 @@ class MenuList extends Component{
     }
 
     ul = { 
-        margin: "0px", 
-        padding: "0px", 
-        listStyle: "none" 
+        paddingLeft: "0px",
+        listStyle: "none" ,
+        textAlign:"center"
         }
         
     li = { 
         display: "inline", 
-        padding: "0px", 
-        margin: "0px",
-        fontSize:"30px"
+        padding: "10px", 
+        margin: "10px",
+        width: "50px",
+        height: "50px",
+        fontSize:"25px",
+        textAlign:"center",
+        display: "inline"
     }
 
     render(){
         return(
             <div>
               <h2 style={this.h2}>Menu</h2>
-                <ul>
-                    <Link to="/">Top</Link>
-                    <Link to="/blog">Blog投稿</Link>
+                <ul style={this.ul}>
+                    <Link to="/" style={this.li}>Top</Link>
+                    <Link to="/blog" style={this.li}>Blog投稿</Link>
                 </ul>
             </div>
         );
