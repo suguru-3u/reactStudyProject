@@ -1,17 +1,15 @@
 // import React from 'react';
 import React,{Component} from 'react';
-import './App.css';
-import Header from './Header/Header.js';
 
-class App extends Component{
+class Heading extends Component{
 
   render(){
     return(
       <div >
-        <Header />
+        <h1>BlogSite_App</h1>
       </div>      
     );
   }
 }
 
-export default App;
+export default Heading;
