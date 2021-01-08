@@ -1,4 +1,5 @@
 import React,{Component} from 'react';
+import { Link } from 'react-router-dom'
 
 class MenuList extends Component{
     h2 = {
@@ -23,8 +24,8 @@ class MenuList extends Component{
             <div>
               <h2 style={this.h2}>Menu</h2>
                 <ul>
-                    <li>Top</li>
-                    <li>Blog投稿</li>
+                    <Link to="/">Top</Link>
+                    <Link to="/blog">Blog投稿</Link>
                 </ul>
             </div>
         );
