@@ -5,7 +5,8 @@ class MenuList extends Component{
         margin:"0px",
         padding:"0px",
         border: "1rem solid",
-        width:"300px"
+        width:"300px",
+        height:"800px"
     }
 
     h2 = {

@@ -3,6 +3,7 @@ import React,{Component} from 'react';
 import './App.css';
 import Header from './Header/Header.js';
 import Menu from './Menu/Menu.js';
+import Main from './Main/Main.js';
 
 class App extends Component{
 
@@ -11,6 +12,7 @@ class App extends Component{
       <div >
         <Header />
         <Menu />
+        <Main />
       </div>      
     );
   }
