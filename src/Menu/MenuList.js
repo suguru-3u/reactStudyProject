@@ -1,14 +1,6 @@
 import React,{Component} from 'react';
 
 class MenuList extends Component{
-    style ={
-        margin:"0px",
-        padding:"0px",
-        border: "1rem solid",
-        width:"300px",
-        height:"800px"
-    }
-
     h2 = {
         textAlign:"center"
     }
@@ -28,7 +20,7 @@ class MenuList extends Component{
 
     render(){
         return(
-            <div style={this.style}>
+            <div>
               <h2 style={this.h2}>Menu</h2>
                 <ul>
                     <li>Top</li>
