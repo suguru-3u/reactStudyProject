@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Route } from 'react-router-dom';
 import MainTop from '../Main/MainTop';
 import MainBlog from '../Main/MainBlog';
 import MainBlogAdd from '../Main/MainBlogAdd';
+import MainBlogEdit from '../Main/MainBlogEdit';
 
 class Menu extends Component{
     style ={
@@ -23,6 +24,7 @@ class Menu extends Component{
                     <Route exact path='/' component={MainTop}/>
                     <Route path='/blog' component={MainBlog}/>
                     <Route path='/blogadd' component={MainBlogAdd} />
+                    <Route path='/blogadd/edit/:id' component={MainBlogEdit} />
                 </Router>
             </div>
         );

@@ -5,7 +5,6 @@ class MainBlogAdd extends Component{
     tableStyle ={
         margin:"0px",
         padding:"0px",
-        width:"80%",
     }
 
     data = [
@@ -53,7 +52,8 @@ class MainBlogAdd extends Component{
             <tr key={index}>
                 <th>{index + 1}</th>
                 <th>{value.title}</th>
-                <th><input type="button" value="delete" onClick={() => this.blogDelete(index)}/></th>
+                <th>{<Link to={"/blogadd/edit/"+index} >Edit</Link>}</th>
+                <th><input type="button" value="Delete" onClick={() => this.blogDelete(index)}/></th>
             </tr>
         );
         return(
