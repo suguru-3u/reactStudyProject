@@ -9,9 +9,22 @@ class MainBlog extends Component {
         textAlign:"center"
     }
 
-    data = {
-        title:'blog1',
-        body:"公園に行った"
+    data = [
+        {title:'blog1',
+        body:"公園に行った",},
+        {title:"blog2",
+        body:"海に行った"}]
+
+    constructor(proos){
+        super(proos);
+        this.blogindex = this.blogindex.bind(this);
+    }
+
+    blogindex(){
+        const data = this.data.map((value,index) => {
+            <tr><th>value.title</th><th>index</th></tr>
+        });
+        return data      
     }
 
     render(){
@@ -23,9 +36,14 @@ class MainBlog extends Component {
                 <table>
                     <thead>
                         <tr>
-                            <th></th>
+                            <th>Title</th><th></th><th></th>
                         </tr>
                     </thead>
+                    <tbody>
+                        <tr>
+                            {this.blogindex}     
+                        </tr>
+                    </tbody>
                 </table>
             </div>
         );
