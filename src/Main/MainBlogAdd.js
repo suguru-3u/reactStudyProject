@@ -28,23 +28,26 @@ class MainBlogAdd extends Component{
     }
 
     doChange(event){
-        this.setState({[event.target.name]:event.target.value}); 
+        // this.setState({[event.target.name]:event.target.value}); 
+        this.setState({        
+            title : event.target.value
+        });
     }
 
     doAction(event){
+        event.preventDefault();
         this.setState({
             datas:[
                 ...this.state.datas,
                 {
                     title:this.state.title,
-                    body:this.state.body   
+                    // body:this.state.body   
                 }
             ],
             title:"",
-            body:""
+            // body:""
         });
-        event.preventDefault();
-        console.log(this.state.datas);
+        
     }
 
     // blogindex(){
@@ -72,20 +75,19 @@ class MainBlogAdd extends Component{
                     <form onSubmit={this.doAction} >
                         <p>Title</p>
                         <input type="text" name="title"  onChange={this.doChange} value={this.state.title} />
-                        <p>Body</p>
-                        <input type="text" name="body"  onChange={this.doChange} value={this.state.body} />
+                        {/* <p>Body</p>
+                        <input type="text" name="body"  onChange={this.doChange} value={this.state.body} /> */}
                         <br />
                         <input type="submit" value="投稿"/>
                     </form>
                 <p>投稿したBlog</p>
-                {console.log(this.state.datas)}
                 {/* {this.blogindex()} */}
-                {this.state.datas.map((l)=>(
+                {/* {this.state.datas.map((l)=>(
                 <div key={l.title}>
                     <p>title:{l.title}</p>
                     <p>body:{l.body}</p>  
-                </div>        
-                ))}
+                </div>         */}
+                {/* ))} */}
             </div>
         );  
     };
