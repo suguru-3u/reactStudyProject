@@ -2,26 +2,36 @@ import React,{Component} from 'react';
 
 class MainBlogAdd extends Component{
 
+    tableStyle ={
+        margin:"0px",
+        padding:"0px",
+        width:"80%",
+    }
+
+    data = [
+        {title:'blog1',
+        body:"公園に行きました！"},    
+        {title:"blog2",
+        body:"海に行きました"}
+    ];
+
     constructor(props){
         super(props);
         this.state = {
             datas:[],
             title: "",
             body: ""
-        }
+        };
         this.doChange = this.doChange.bind(this);
         this.doAction = this.doChange.bind(this);
-        this.blogindex = this.blogindex.bind(this);
+        // this.blogindex = this.blogindex.bind(this);
     }
 
     doChange(event){
-        this.setState(
-            {[event.target.name]:event.target.value}
-        ); 
+        this.setState({[event.target.name]:event.target.value}); 
     }
 
     doAction(event){
-        event.preventDefault();
         this.setState({
             datas:[
                 ...this.state.datas,
@@ -33,47 +43,49 @@ class MainBlogAdd extends Component{
             title:"",
             body:""
         });
+        event.preventDefault();
+        console.log(this.state.datas);
     }
 
-    blogindex(){
-        console.log(this.data);
-        const dataBlog = this.state.datas.map((value,index) =>
-            <tr key={index}><th>{index + 1}</th><th>{value.title}</th><th>{value.body}</th></tr>
-        );
-        console.log(dataBlog);
-        return(
-            <table style={this.tableStyle}>
-                <thead>
-                    <tr>
-                        <th>Index</th><th>Title</th><th>Body</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {dataBlog}
-                </tbody>
-            </table>
-        )    
-    }
+    // blogindex(){
+    //     const dataBlog = this.state.datas.map((value,index) =>
+    //         <tr key={index}><th>{index + 1}</th><th>{value.title}</th><th>{value.body}</th></tr>
+    //     );
+    //     return(
+    //         <table style={this.tableStyle}>
+    //             <thead>
+    //                 <tr>
+    //                     <th>Index</th><th>Title</th><th>Body</th>
+    //                 </tr>
+    //             </thead>
+    //             <tbody>
+    //                 {dataBlog}
+    //             </tbody>
+    //         </table>
+    //     )    
+    // }
 
     render(){
         return(
-            <div>
+            <div className="App">
                 <h2>Blog投稿</h2>
-                <form>
-                    <table>
-                        <tbody>
-                            <tr>
-                                <td>Title</td><td><input type="text" name="title" required onChange={this.doChange}/></td>
-                            </tr>
-                            <tr>
-                                <td>Body</td><td><input type="textarea" name="body" required onChange={this.doChange} /></td>
-                            </tr>
-                        </tbody>
-                    </table>
-                    <button onClick={this.doAction}>投稿</button>
-                </form>
+                    <form onSubmit={this.doAction} >
+                        <p>Title</p>
+                        <input type="text" name="title"  onChange={this.doChange} value={this.state.title} />
+                        <p>Body</p>
+                        <input type="text" name="body"  onChange={this.doChange} value={this.state.body} />
+                        <br />
+                        <input type="submit" value="投稿"/>
+                    </form>
                 <p>投稿したBlog</p>
-                {this.blogindex}
+                {console.log(this.state.datas)}
+                {/* {this.blogindex()} */}
+                {this.state.datas.map((l)=>(
+                <div key={l.title}>
+                    <p>title:{l.title}</p>
+                    <p>body:{l.body}</p>  
+                </div>        
+                ))}
             </div>
         );  
     };
