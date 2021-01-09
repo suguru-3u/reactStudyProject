@@ -9,11 +9,19 @@ class MainBlog extends Component {
         textAlign:"center"
     }
 
+    tableStyle ={
+        margin:"0px",
+        padding:"0px",
+        width:"100%",
+    }
+
+
     data = [
         {title:'blog1',
-        body:"公園に行った",},
+        body:"公園に行きました！"},    
         {title:"blog2",
-        body:"海に行った"}]
+        body:"海に行きました"}
+    ];
 
     constructor(proos){
         super(proos);
@@ -21,10 +29,23 @@ class MainBlog extends Component {
     }
 
     blogindex(){
-        const data = this.data.map((value,index) => {
-            <tr><th>value.title</th><th>index</th></tr>
-        });
-        return data      
+        console.log(this.data);
+        const dataBlog = this.data.map((value,index) =>
+            <tr key={index}><th>{index + 1}</th><th>{value.title}</th><th>{value.body}</th></tr>
+        );
+        console.log(dataBlog);
+        return(
+            <table style={this.tableStyle}>
+                <thead>
+                    <tr>
+                        <th>Index</th><th>Title</th><th>Body</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {dataBlog}
+                </tbody>
+            </table>
+        )    
     }
 
     render(){
@@ -33,18 +54,7 @@ class MainBlog extends Component {
                 <h2 style={this.h2}>Blogページ</h2>
                 <p style={this.p}>blog投稿
                 </p>
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Title</th><th></th><th></th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            {this.blogindex}     
-                        </tr>
-                    </tbody>
-                </table>
+                {this.blogindex()}
             </div>
         );
     }

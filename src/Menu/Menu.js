@@ -8,8 +8,7 @@ class Menu extends Component{
     style ={
         margin:"0px",
         padding:"0px",
-        border: "1rem solid",
-        width:"1870px",
+        width:"100%",
         height:"800px",
         textAlign: "left",
         display: "inline-block"
