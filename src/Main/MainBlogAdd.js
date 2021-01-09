@@ -23,15 +23,12 @@ class MainBlogAdd extends Component{
             body: ""
         };
         this.doChange = this.doChange.bind(this);
-        this.doAction = this.doChange.bind(this);
-        // this.blogindex = this.blogindex.bind(this);
+        this.doAction = this.doAction.bind(this);
+        this.blogindex = this.blogindex.bind(this);
     }
 
     doChange(event){
-        // this.setState({[event.target.name]:event.target.value}); 
-        this.setState({        
-            title : event.target.value
-        });
+        this.setState({[event.target.name]:event.target.value}); 
     }
 
     doAction(event){
@@ -41,32 +38,32 @@ class MainBlogAdd extends Component{
                 ...this.state.datas,
                 {
                     title:this.state.title,
-                    // body:this.state.body   
+                    body:this.state.body   
                 }
             ],
             title:"",
-            // body:""
+            body:""
         });
         
     }
 
-    // blogindex(){
-    //     const dataBlog = this.state.datas.map((value,index) =>
-    //         <tr key={index}><th>{index + 1}</th><th>{value.title}</th><th>{value.body}</th></tr>
-    //     );
-    //     return(
-    //         <table style={this.tableStyle}>
-    //             <thead>
-    //                 <tr>
-    //                     <th>Index</th><th>Title</th><th>Body</th>
-    //                 </tr>
-    //             </thead>
-    //             <tbody>
-    //                 {dataBlog}
-    //             </tbody>
-    //         </table>
-    //     )    
-    // }
+    blogindex(){
+        const dataBlog = this.state.datas.map((value,index) =>
+            <tr key={index}><th>{index + 1}</th><th>{value.title}</th><th>{value.body}</th></tr>
+        );
+        return(
+            <table style={this.tableStyle}>
+                <thead>
+                    <tr>
+                        <th>Index</th><th>Title</th><th>Body</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {dataBlog}
+                </tbody>
+            </table>
+        )    
+    }
 
     render(){
         return(
@@ -75,19 +72,13 @@ class MainBlogAdd extends Component{
                     <form onSubmit={this.doAction} >
                         <p>Title</p>
                         <input type="text" name="title"  onChange={this.doChange} value={this.state.title} />
-                        {/* <p>Body</p>
-                        <input type="text" name="body"  onChange={this.doChange} value={this.state.body} /> */}
+                        <p>Body</p>
+                        <input type="text" name="body"  onChange={this.doChange} value={this.state.body} />
                         <br />
                         <input type="submit" value="投稿"/>
                     </form>
                 <p>投稿したBlog</p>
-                {/* {this.blogindex()} */}
-                {/* {this.state.datas.map((l)=>(
-                <div key={l.title}>
-                    <p>title:{l.title}</p>
-                    <p>body:{l.body}</p>  
-                </div>         */}
-                {/* ))} */}
+                {this.blogindex()}
             </div>
         );  
     };
