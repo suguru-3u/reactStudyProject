@@ -25,6 +25,7 @@ class MainBlogAdd extends Component{
         this.doChange = this.doChange.bind(this);
         this.doAction = this.doAction.bind(this);
         this.blogindex = this.blogindex.bind(this);
+        this.blogDelete = this.blogDelete.bind(this);
     }
 
     doChange(event){
@@ -49,13 +50,13 @@ class MainBlogAdd extends Component{
 
     blogindex(){
         const dataBlog = this.state.datas.map((value,index) =>
-            <tr key={index}><th>{index + 1}</th><th>{value.title}</th><th>{value.body}</th></tr>
+            <tr key={index}><th>{index + 1}</th><th>{value.title}</th><th><button onClick={this.blogDelete(index)}>削除</button></th></tr>
         );
         return(
             <table style={this.tableStyle}>
                 <thead>
                     <tr>
-                        <th>Index</th><th>Title</th><th>Body</th>
+                        <th>Index</th><th>Title</th><th></th>
                     </tr>
                 </thead>
                 <tbody>
@@ -63,6 +64,12 @@ class MainBlogAdd extends Component{
                 </tbody>
             </table>
         )    
+    }
+
+    blogDelete(index){
+        if(confirm('本当に削除しますか？')){
+            this.state.datas.splice(index,1);
+        }
     }
 
     render(){
