@@ -3,6 +3,7 @@ import MenuList from './MenuList';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import MainTop from '../Main/MainTop';
 import MainBlog from '../Main/MainBlog';
+import MainBlogAdd from '../Main/MainBlogAdd';
 
 class Menu extends Component{
     style ={
@@ -21,6 +22,7 @@ class Menu extends Component{
                     <MenuList />
                     <Route exact path='/' component={MainTop}/>
                     <Route path='/blog' component={MainBlog}/>
+                    <Route path='/blogadd' component={MainBlogAdd} />
                 </Router>
             </div>
         );
