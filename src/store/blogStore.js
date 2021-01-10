@@ -56,16 +56,19 @@ function deleteReducer(state,action){
 }
 
 // action creator
-export function addBlog(text){
+export function addBlog(text,content){
     return{
         type:"ADD",
-        message:text
+        title:text,
+        body:content
     }
 }
 
 export function deleteBlog(number){
     return{
         type:"DELETE",
-        message:number
+        index:number
     }
 }
+
+export default createStore(blogReducer);
