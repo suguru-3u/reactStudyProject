@@ -3,6 +3,7 @@ import {createStore} from 'redux';
 // blog state
 const blogData = {
     data:[{title:"sample title",body:"sample body"}],
+    message:"",
     viewEditChange:false,
     editNumber:""
 }
@@ -28,4 +29,30 @@ export function blogReducer(state = blogData,action){
 }
 
 // reducer action
+function addReducer(state,action){
+    let data = {
+        title:action.title,
+        body:action.body
+    }
+    let newdata = state.data.slice();
+    newdata.unshift(data);
+    return{
+        data:newdata,
+        message:"ADD",
+        viewEditChange:false,
+        editNumber:""
+    }
+}
 
+function deleteReducer(state,action){
+    let newdata = state.data.slice();
+    newdata.splice(action.index,1);
+    return{
+        data:newdata,
+        message:"DELETE",
+        viewEditChange:false,
+        editNumber:""
+    }
+}
+
+// action creator
