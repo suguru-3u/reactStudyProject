@@ -9,14 +9,15 @@ class MainBlogEdit extends Component{
     render(){
         const params = this.props.match
         const id = parseInt(params.params.id, 10)
-        const data = datas.filter(e => e.id === id)[0]
+       console.log(params);
+       console.log(id);
         return(
             <div>
                 <h2>BlogEdit</h2>
                 <p>Title</p><br />
-                <input type="text" value={data.title}/>
+                {/* <input type="text" value={data.title}/> */}
                 <p>Body</p><br />
-                <input type="textarea" value={data.body}/>
+                {/* <input type="textarea" value={data.body}/> */}
             </div>
         );
     }
