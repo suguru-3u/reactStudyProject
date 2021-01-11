@@ -14,6 +14,7 @@ class Header extends Component{
     return(
       <div style={this.style}>
         <Heading />
+        <Menu />
       </div>      
     );
   }

@@ -3,9 +3,12 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import BlogStore from './store/BlogStore';
 
 ReactDOM.render(
-        <App />,
+    <Provider store={BlogStore}>
+        <App />
+    </Provider>,
     document.getElementById('root')
 );
 
