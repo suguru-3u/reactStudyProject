@@ -1,20 +1,20 @@
 // import React from 'react';
 import React,{Component} from 'react';
 import Heading from './Heading';
+import Menu from './Menu';
 
 class Header extends Component{
-    style ={
-        margin:"0px",
-        padding:"0px",
-        textAlign:"center",
-        border: "1rem solid"
+    headerStyle ={
+        textAlign:"right"
     } 
 
   render(){
     return(
       <div style={this.style}>
-        <Heading />
-        <Menu />
+        <header>
+          <Heading />
+          <Menu />
+        </header>
       </div>      
     );
   }

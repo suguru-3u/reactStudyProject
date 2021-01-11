@@ -3,11 +3,15 @@ import React,{Component} from 'react';
 
 class Heading extends Component{
 
+  logStyle = {
+      position: "absolute",
+      left: "20px",
+      top: "10px",
+  }
+
   render(){
     return(
-      <div >
-        <h1>BlogSite_App</h1>
-      </div>      
+        <h1 style={this.logStyle}>Bookers</h1>
     );
   }
 }

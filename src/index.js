@@ -4,6 +4,7 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import BlogStore from './store/BlogStore';
+import {Provider} from 'react-redux';
 
 ReactDOM.render(
     <Provider store={BlogStore}>

@@ -17,11 +17,11 @@ export function blogReducer(state = blogData,action){
         case "DELETE":
             return deleteReducer(state,action);
 
-        case "EDIT":
-            return editReducer(state,action);
+        // case "EDIT":
+        //     return editReducer(state,action);
             
-        case "viewChange":
-            return viewChangeReducer(state,action);    
+        // case "viewChange":
+        //     return viewChangeReducer(state,action);    
 
         default:
             return state;
