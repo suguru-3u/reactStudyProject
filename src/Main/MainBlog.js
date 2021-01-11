@@ -1,62 +1,34 @@
-import React,{Component} from 'react';
+import React from 'react';
+import { makeStyles } from '@material-ui/core/styles';
+import Paper from '@material-ui/core/Paper';
+import Grid from '@material-ui/core/Grid';
 
-class MainBlog extends Component {
-    h2 = {
-        textAlign:"center"
-    }
+const useStyles = makeStyles((theme) => ({
+  root: {
+    flexGrow: 1,
+  },
+  paper: {
+    padding: theme.spacing(2),
+    textAlign: 'center',
+    color: theme.palette.text.secondary,
+  },
+}));
 
-    p = {
-        textAlign:"center"
-    }
+export default function FullWidthGrid() {
+  const classes = useStyles();
 
-    tableStyle ={
-        margin:"0px",
-        padding:"0px",
-        width:"100%",
-    }
-
-
-    data = [
-        {title:'blog1',
-        body:"公園に行きました！"},    
-        {title:"blog2",
-        body:"海に行きました"}
-    ];
-
-    constructor(proos){
-        super(proos);
-        this.blogindex = this.blogindex.bind(this);
-    }
-
-    blogindex(){
-        console.log(this.data);
-        const dataBlog = this.data.map((value,index) =>
-            <tr key={index}><th>{index + 1}</th><th>{value.title}</th><th>{value.body}</th></tr>
-        );
-        console.log(dataBlog);
-        return(
-            <table style={this.tableStyle}>
-                <thead>
-                    <tr>
-                        <th>Index</th><th>Title</th><th>Body</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {dataBlog}
-                </tbody>
-            </table>
-        )    
-    }
-
-    render(){
-        return(
-            <div>
-                <h2 style={this.h2}>Blogページ</h2>
-                <p style={this.p}>blog投稿
-                </p>
-                {this.blogindex()}
-            </div>
-        );
-    }
+  return (
+    <div className={classes.root}>
+        <Grid container spacing={3}>
+            <Grid item xs={12} sm={3}>
+                <h3>Blog投稿</h3>
+            <Paper className={classes.paper}>xs=12 sm=6</Paper>
+            </Grid>
+            <Grid item xs={12} sm={9}>
+                <h3>Blog一覧</h3>
+            <Paper className={classes.paper}>xs=12 sm=6</Paper>
+            </Grid>
+        </Grid>
+    </div>
+  );
 }
-export default MainBlog

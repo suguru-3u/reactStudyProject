@@ -5,26 +5,22 @@ import { Link } from 'react-router-dom'
 // import MainBlog from '../Main/MainBlog';
 // import MainBlogAdd from '../Main/MainBlogAdd';
 // import MainBlogEdit from '../Main/MainBlogEdit';
+import Button from '@material-ui/core/Button';
 
 class Menu extends Component{
-
-    ulStyle = {
-        display: "flex"
-    }  
-    
-    
+ 
     liStyle = {
-        display: "inline-block",
+        color: "white",
         marginRight: "25px"
     }
 
     render(){
-        return(  
-            <ul style={this.ulStyle}>
-                <li style={this.liStyle}><Link to="/" style={this.li}>Top</Link></li>
-                <li style={this.liStyle}><Link to="/blog" style={this.li}>Blog一覧</Link></li>
-                <li style={this.liStyle}><Link to="/blogadd" style={this.li}>Blog投稿</Link></li>                
-            </ul>  
+        return(
+            <div>
+                <Button color="inherit"><Link to="/" style={this.liStyle}>Top</Link></Button>
+                <Button color="inherit"><Link to="/blog" style={this.liStyle}>Blog一覧</Link></Button>  
+            </div>  
+           
         );
     }
 }
