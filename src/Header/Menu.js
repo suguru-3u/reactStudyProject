@@ -8,9 +8,11 @@ import { Link } from 'react-router-dom'
 
 class Menu extends Component{
 
-    // ulStyle = {
-    //     display: "flex"
-    // }   
+    ulStyle = {
+        display: "flex"
+    }  
+    
+    
     liStyle = {
         display: "inline-block",
         marginRight: "25px"
@@ -18,7 +20,7 @@ class Menu extends Component{
 
     render(){
         return(  
-            <ul>
+            <ul style={this.ulStyle}>
                 <li style={this.liStyle}><Link to="/" style={this.li}>Top</Link></li>
                 <li style={this.liStyle}><Link to="/blog" style={this.li}>Blog一覧</Link></li>
                 <li style={this.liStyle}><Link to="/blogadd" style={this.li}>Blog投稿</Link></li>                
