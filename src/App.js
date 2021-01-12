@@ -1,31 +1,16 @@
-// import React from 'react';
-import React,{Component} from 'react';
-import './App.css';
-import Header from './Header/Header.js';
-import Menu from './Menu/Menu.js';
-import { BrowserRouter as Router, Route } from 'react-router-dom';
+import React, { useState } from 'react';
+import Main from './Main/Main';
 import MainTop from './Main/MainTop';
-import MainBlog from './Main/MainBlog';
 import MainBlogAdd from './Main/MainBlogAdd';
-import MainBlogEdit from './Main/MainBlogEdit';
+import ReactDOM from 'react-dom';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
-class App extends Component{
+export default function App() {
 
-  render(){
-    return(
-      <div >
-        <Router>
-          <Header />
-          {/* <Menu /> */}
-          <Route exact path='/' component={MainTop}/>
-          <Route path='/blog' component={MainBlog}/>
-          <Route path='/blogadd' component={MainBlogAdd} />
-          <Route path='/blogadd/edit/:id' component={MainBlogEdit} />
-        </Router>
-       
-      </div>      
-    );
-  }
+  return (
+    <div>
+      <Main />
+    </div>
+  );
+
 }
-
-export default App;

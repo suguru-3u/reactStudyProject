@@ -28,8 +28,7 @@ class MenuList extends Component{
             <div>
               <h2 style={this.h2}>Menu</h2>
                 <ul style={this.ul}>
-                    <Link to="/" style={this.li}>Top</Link>
-                    <Link to="/blog" style={this.li}>Blog一覧</Link>
+                    <Link to="/" style={this.li}>Top</Link> 
                     <Link to="/blogadd" style={this.li}>Blog投稿</Link>
                 </ul>
             </div>

@@ -1,22 +1,14 @@
 import React,{Component} from 'react';
+import Button from '@material-ui/core/Button';
+import {
+    BrowserRouter as Router,
+    Link
+  } from 'react-router-dom';
 
-class MainTop extends Component {
-    h2 = {
-        textAlign:"center"
-    }
-
-    p = {
-        textAlign:"center"
-    }
-
-    render(){
-        return(
-            <div>
-                <h2 style={this.h2}>Topページ</h2>
-                <p style={this.p}>こんにちわ、こちらはBlogサイトです。Blogの投稿、編集、削除することができます。
-                </p>
-            </div>
-        );
-    }
+export default function MainTop(){
+    return(
+        <div>
+            <h2>TOPページ</h2>
+        </div>
+    );
 }
-export default MainTop

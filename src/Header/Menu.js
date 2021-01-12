@@ -1,28 +1,21 @@
-import React,{Component} from 'react';
-import { Link } from 'react-router-dom'
-// import { BrowserRouter as Router, Route } from 'react-router-dom';
-// import MainTop from '../Main/MainTop';
-// import MainBlog from '../Main/MainBlog';
-// import MainBlogAdd from '../Main/MainBlogAdd';
-// import MainBlogEdit from '../Main/MainBlogEdit';
+import React from 'react';
+import {
+  BrowserRouter as Router,
+  Link
+} from 'react-router-dom';
 import Button from '@material-ui/core/Button';
 
-class Menu extends Component{
- 
-    liStyle = {
+export default function Menu(){
+
+    const liStyle = {
         color: "white",
         marginRight: "25px"
     }
 
-    render(){
-        return(
-            <div>
-                <Button color="inherit"><Link to="/" style={this.liStyle}>Top</Link></Button>
-                <Button color="inherit"><Link to="/blog" style={this.liStyle}>Blog一覧</Link></Button>  
-            </div>  
-           
-        );
-    }
+    return(
+        <div>
+            <Button color="inherit"><Link to="/" style={liStyle}>TOPページ</Link></Button>
+            <Button color="inherit"><Link to="/"><Link to="/blog" style={liStyle}>投稿一覧</Link></Link></Button>
+        </div>  
+    );
 }
-
-export default Menu

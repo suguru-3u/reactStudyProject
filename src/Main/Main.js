@@ -1,23 +1,30 @@
 import React,{Component} from "react";
+import Header from '../Header/Header';
+import Footer from '../Footer/Footer';
+import {
+  BrowserRouter as Router,
+  Route,
+  Switch,
+  useParams,
+  useHistory,
+  useLocation,
+} from 'react-router-dom';
 import MainTop from "./MainTop"
+import MainBlog from "./MainBlog"
 
-class Main extends Component{
-    style ={
-        margin:"0px",
-        padding:"0px",
-        width:"70%",
-        height:"800px",
-        textAlign: "right",
-        display: "inline-block"
-    }
-
-    render(){
-        return(
-            <div style={this.style}>
-              <MainTop />
-            </div>
-        );
-    }
+export default function Main(){
+    return(
+        <Router>
+            <Header />
+            <Switch>
+                <Route path="/" exact>
+                    <MainTop />
+                </Route>
+                <Route path="/blog" exact>
+                    <MainBlog />
+                </Route> 
+            </Switch>
+            <Footer />
+        </Router>
+    )
 }
-
-export default Main

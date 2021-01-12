@@ -8,6 +8,14 @@ import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
 import Heading from './Heading';
 import Menu from './Menu';
+import {
+  BrowserRouter as Router,
+  Route,
+  Switch,
+  useParams,
+  useHistory,
+  useLocation,
+} from 'react-router-dom';
 
 
 const useStyles = makeStyles((theme) => ({
@@ -22,7 +30,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function ButtonAppBar() {
+export default function Headers() {
   const classes = useStyles();
 
   return (
@@ -35,11 +43,12 @@ export default function ButtonAppBar() {
           <Typography variant="h6" className={classes.title}>
             <Heading />
           </Typography>
-           <Menu />
+           <Menu style={classes}/>
         </Toolbar>
       </AppBar>
     </div>
   );
 }
+
 
 
