@@ -10,22 +10,34 @@ import React, { useState } from 'react'
 export default function blogindex(props) {
   const classes = props.style
 
-  const [values,setValues] = setValues({
+  const [values,setValues] = setValues([{
+    datas:[],
     title:"",
     body:""
-  });
+  }]);
 
   
   const handleCgangeChange = event => {
     const target = event.target;
     const name = target.name;
-    setValues({...values,[name]:values});
+    setValues({[name]:values});
   }
 
   const handleSubmit = event => {
     event.preventDefault();
     console.log(values.title);
     console.log(values.body);
+    setValues({
+      datas:[
+        ...datas,
+        {
+          title:values.title,
+          body:values.body,
+        }
+      ],
+      values.title:"",
+      values.body:""
+    })
   }
 
 
