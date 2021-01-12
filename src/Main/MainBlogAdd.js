@@ -16,24 +16,34 @@ export default function blogindex(props) {
   });
 
   
-  function inputChange(e){
-    const target = e.target;
+  const handleCgangeChange = event => {
+    const target = event.target;
     const name = target.name;
     setValues({...values,[name]:values});
   }
 
+  const handleSubmit = event => {
+    event.preventDefault();
+    console.log(values.title);
+    console.log(values.body);
+  }
+
+
+
 
   return (
     <div>
-        <form className={classes.from} noValidate autoComplete="off">
-            <TextField id="standard-basic" label="Title" />
+        <form className={classes.from} noValidate autoComplete="off" onSubmit={handleSubmit}>
+            <TextField id="standard-basic" label="Title" name="title" onChange={handleCgangeChange}/>
             <TextField
                 id="standard-basic"
                 label="Body"
                 multiline
                 rows={4}
+                name="body"
+                onChange={handleCgangeChange}
             />
-            <Button variant="contained" >投稿</Button>
+            <Button variant="contained" onClick={() => setValues}>投稿</Button>
             <Button variant="contained" color="secondary">リセット</Button>
         </form>
     </div>
