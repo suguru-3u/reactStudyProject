@@ -7,36 +7,36 @@ import TableContainer from '@material-ui/core/TableContainer';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
+import Button from '@material-ui/core/Button';
 
-function createData(title, body) {
-  return { title, body};
-}
-
-const rows = [
-  createData('Frozen yoghurt', 'sample'),
-  createData('Ice cream sandwich', 'sample'),
-  createData('Eclair', 'sample'),
-  createData('Cupcake', 'sample'),
-  createData('Gingerbread', 'sample'),
-];
 
 export default function MainIndex(props){
     const classes = props.style
+
+    const bookers = props.data
+
+    // const bookerDelete = (index) => {
+    //     props.bookerDelete(index)
+    // };
 
     return(
         <TableContainer component={Paper}>
         <Table className={classes.table} aria-label="simple table">
             <TableHead>
                 <TableRow>
+                    <TableCell>Index</TableCell>
                     <TableCell>Title</TableCell>
-                    <TableCell >Body</TableCell>
+                    <TableCell></TableCell>
                 </TableRow>
             </TableHead>
             <TableBody>
-                {rows.map((row) => (
-                    <TableRow key={row.title}>
-                        <TableCell>{row.title}</TableCell>
-                        <TableCell >{row.body}</TableCell>
+                {bookers.datas.map((value,index) => (
+                    <TableRow>
+                        <TableCell>{index + 1}</TableCell>
+                        <TableCell>{value.title}</TableCell>
+                        <TableCell>
+                            <Button variant="contained" color="secondary" onClick={() => props.bookerDelete(index)}>delete</Button>
+                        </TableCell>
                     </TableRow>
                 ))}
             </TableBody>

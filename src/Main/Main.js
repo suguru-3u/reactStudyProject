@@ -4,10 +4,7 @@ import Footer from '../Footer/Footer';
 import {
   BrowserRouter as Router,
   Route,
-  Switch,
-  useParams,
-  useHistory,
-  useLocation,
+  Switch
 } from 'react-router-dom';
 import MainTop from "./MainTop"
 import MainBlog from "./MainBlog"

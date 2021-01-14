@@ -5,47 +5,21 @@ import React, { useState } from 'react'
 export default function Blogindex(props) {
   const classes = props.style
 
-  const [values,setValues] = useState({
-    datas:[],
-    title:"",
-    body:""
-  });
-
   const handleCgangeChange = event => {
-    setValues({...values, [event.target.name]: event.target.value});
-    console.log(values.title);
-    console.log(values.body);
+    props.setValues({...props.values, [event.target.name]: event.target.value});
   }
 
   const handleSubmit = event => {
-    event.preventDefault();
-    console.log(values.title);
-    console.log(values.body);
-    console.log(1);
-    setValues({
-      datas:[
-        ...values.datas,
-        {
-          title:values.title,
-          body:values.body,
-        }
-      ],
-      title:"",
-      body:""
-    })
-    console.log(values.datas);
+    props.handleSubmit(event);
   };
 
-  const reset = event => {
-    setValues({
-      title:"",
-      body:""
-    })
+  const reset = () => {
+    props.reset()
   };
 
   return (
     <form className={classes.from} noValidate autoComplete="off" onSubmit={handleSubmit}>
-        <TextField id="standard-basic" label="Title" name="title" onChange={handleCgangeChange} value={values.title}/>
+        <TextField id="standard-basic" label="Title" name="title" onChange={handleCgangeChange} value={props.values.title}/>
         <TextField
             id="standard-basic"
             label="Body"
@@ -53,7 +27,7 @@ export default function Blogindex(props) {
             rows={4}
             name="body"
             onChange={handleCgangeChange}
-            value={values.body}
+            value={props.values.body}
         />
         <Button variant="contained" type="submit">submit</Button>
         <Button variant="contained" color="secondary" onClick={reset}>reset</Button>
