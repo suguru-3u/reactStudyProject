@@ -8,6 +8,8 @@ import {
 } from 'react-router-dom';
 import MainTop from "./MainTop"
 import MainBlog from "./MainBlog"
+import MainEdit from "./MainEdit"
+
 
 export default function Main(){
     return(
@@ -20,8 +22,11 @@ export default function Main(){
                 <Route path="/blog" exact>
                     <MainBlog />
                 </Route> 
+                <Route path="/blog/edit/1" exact>
+                    <MainEdit />
+                </Route> 
             </Switch>
             <Footer />
         </Router>
-    )
+    );
 }

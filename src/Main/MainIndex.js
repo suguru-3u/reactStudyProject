@@ -1,5 +1,4 @@
 import React from 'react';
-import { makeStyles } from '@material-ui/core/styles';
 import Table from '@material-ui/core/Table';
 import TableBody from '@material-ui/core/TableBody';
 import TableCell from '@material-ui/core/TableCell';
@@ -8,16 +7,16 @@ import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
 import Button from '@material-ui/core/Button';
+import {BrowserRouter as Router,Link} from 'react-router-dom';
 
 
 export default function MainIndex(props){
+
     const classes = props.style
-
     const bookers = props.data
-
-    // const bookerDelete = (index) => {
-    //     props.bookerDelete(index)
-    // };
+    const liStyle = {
+        textDecoration: 'none'
+    }
 
     return(
         <TableContainer component={Paper}>
@@ -27,6 +26,7 @@ export default function MainIndex(props){
                     <TableCell>Index</TableCell>
                     <TableCell>Title</TableCell>
                     <TableCell></TableCell>
+                    <TableCell></TableCell>
                 </TableRow>
             </TableHead>
             <TableBody>
@@ -34,6 +34,9 @@ export default function MainIndex(props){
                     <TableRow>
                         <TableCell>{index + 1}</TableCell>
                         <TableCell>{value.title}</TableCell>
+                        <TableCell>
+                            <Button variant="contained"><Link to="/" style={liStyle}>Edit</Link></Button>
+                        </TableCell>
                         <TableCell>
                             <Button variant="contained" color="secondary" onClick={() => props.bookerDelete(index)}>delete</Button>
                         </TableCell>
