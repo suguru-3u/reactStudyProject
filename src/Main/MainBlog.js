@@ -1,29 +1,29 @@
-import React, { useState,useEffect } from 'react';
-import { makeStyles } from '@material-ui/core/styles';
+import React, { useState,useEffect,useContext } from 'react';
 import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
 import MainBlogAdd from './MainBlogAdd';
 import MainIndex from './MainIndex';
 import firebase from 'firebase';
+import { makeStyles } from '@material-ui/core/styles';
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    flexGrow: 1,
+  flexGrow: 1,
   },
   from: {
-    '& > *': {
+  '& > *': {
       margin: theme.spacing(1),
       width: '25ch',
-    },
+  },
   },
   table: {
-    minWidth: 650,
+  minWidth: 650,
   },
   paper: {
-    padding: theme.spacing(3),
-    textAlign: 'center',
-    color: theme.palette.text.secondary,
-    height:'130%'
+  padding: theme.spacing(3),
+  textAlign: 'center',
+  color: theme.palette.text.secondary,
+  height:'130%'
   },
 }));
 
@@ -34,10 +34,6 @@ export default function FullWidthGrid() {
     title:"",
     body:""
   });
-
-  // const [bookerList,setBookerList] = useState(
-  //   []
-  // );
 
   const [isChangedbookers, setIsChangedbookers] = useState(false);
 

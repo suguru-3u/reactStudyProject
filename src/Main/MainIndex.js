@@ -35,7 +35,7 @@ export default function MainIndex(props){
                         <TableCell>{index + 1}</TableCell>
                         <TableCell>{value.title}</TableCell>
                         <TableCell>
-                            <Button variant="contained"><Link to="/" style={liStyle}>Edit</Link></Button>
+                            <Button variant="contained"><Link to="/blog/edit/1" style={liStyle}>Edit</Link></Button>
                         </TableCell>
                         <TableCell>
                             <Button variant="contained" color="secondary" onClick={() => props.bookerDelete(index)}>delete</Button>

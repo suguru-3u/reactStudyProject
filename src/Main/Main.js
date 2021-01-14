@@ -11,7 +11,32 @@ import MainBlog from "./MainBlog"
 import MainEdit from "./MainEdit"
 
 
+
+// const useStyles = makeStyles((theme) => ({
+//     root: {
+//         flexGrow: 1,
+//     },
+//     from: {
+//         '& > *': {
+//             margin: theme.spacing(1),
+//             width: '25ch',
+//         },
+//     },
+//     table: {
+//         minWidth: 650,
+//     },
+//     paper: {
+//         padding: theme.spacing(3),
+//         textAlign: 'center',
+//         color: theme.palette.text.secondary,
+//         height:'130%'
+//     },
+// }));
+
+// export const UserCount = React.createContext()
+
 export default function Main(){
+
     return(
         <Router>
             <Header />
