@@ -47,7 +47,7 @@ export default function Main(){
                 <Route path="/blog" exact>
                     <MainBlog />
                 </Route> 
-                <Route path="/blog/edit/1" exact>
+                <Route path="/blog/edit/:id" exact>
                     <MainEdit />
                 </Route> 
             </Switch>
