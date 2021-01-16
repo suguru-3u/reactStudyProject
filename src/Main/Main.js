@@ -49,7 +49,7 @@ export default function Main(){
                 </Route> 
                 <Route path="/blog/edit/:id" exact>
                     <MainEdit />
-                </Route> 
+                </Route>
             </Switch>
             <Footer />
         </Router>
