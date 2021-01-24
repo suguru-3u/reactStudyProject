@@ -37,10 +37,6 @@ import firebase from 'firebase';
     const liStyle = {
         textDecoration: 'none'
     }
-    console.log(match.params.id);
-    console.log(match);
-    console.log(location);
-    console.log(history);
 
     const [values,setValues] = useState({
         datas:[],
